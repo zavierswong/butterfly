@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = ".;upload";
+
+service UploadFileService {
+  rpc Upload(stream UploadRequest) returns (UploadResponse) {}
+}
+
+message UploadRequest {
+  bytes Content = 1;
+  string Filename = 2;
+}
+
+enum UploadStatusCode {
+  Success = 0;
+  Failure = 1;
+  Unknown = 2;
+}
+
+message UploadResponse {
+  string Message = 1;
+  UploadStatusCode Code = 2;
+}
+

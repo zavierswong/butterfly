@@ -1,0 +1,3 @@
+app:
+  env: release
+  port: 50050
